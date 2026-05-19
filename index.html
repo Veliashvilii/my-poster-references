@@ -5,44 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Poster References</title>
   <style>
-    html, body { margin: 0; padding: 0; height: 100%; }
-    iframe { display: block; width: 100%; height: 100vh; border: none; }
-    #fallback {
-      display: none;
-      text-align: center;
-      padding: 40px 20px;
-      font-family: sans-serif;
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
     }
-    #fallback a {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 12px 24px;
-      background: #1a73e8;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 16px;
+    iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
-  <iframe src="references.pdf" id="pdfFrame"></iframe>
-  <div id="fallback">
-    <p>PDF görüntüleyici bu tarayıcıda desteklenmiyor.</p>
-    <a href="references.pdf">PDF'i Aç</a>
-  </div>
-  <script>
-    var frame = document.getElementById('pdfFrame');
-    frame.onerror = function() {
-      frame.style.display = 'none';
-      document.getElementById('fallback').style.display = 'block';
-    };
-    // iOS Safari PDF iframe desteklemiyor
-    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    if (isIOS) {
-      frame.style.display = 'none';
-      document.getElementById('fallback').style.display = 'block';
-    }
-  </script>
+  <iframe src="references.pdf"></iframe>
 </body>
 </html>
